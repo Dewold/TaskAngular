@@ -1,1 +1,22 @@
-<p>employee-list works!</p>
+<table class="table table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Должность</th>
+        <th scope="col">Сотрудник</th>
+        <th scope="col">Оклад</th>
+        <th scope="col">Дата назначения</th>
+        <th scope="col">Дата увольнения</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let em of service.employeeList">
+        <td></td>
+        <td>{{em.Position}}</td>
+        <td>[{{em.LastName}}] {{em.FirstName}}</td>
+        <td>{{em.Salary}}</td>
+        <td>{{em.HireDate}}</td>
+        <td>{{em.DismissalDate}}</td>
+      </tr>
+    </tbody>
+  </table>

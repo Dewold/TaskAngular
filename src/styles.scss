@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+
+button.btn-block {
+    margin: 20px 0px 20px 0px;
+}
+
+table {
+    text-align: center;
+    vertical-align: middle;
+    counter-reset: rowNumber;
+}
+
+table tr {
+    counter-increment: rowNumber;
+}
+
+table tr td:first-child::before{
+    content: counter(rowNumber);
+}
+
+input.ng-touched.ng-invalid {
+    border-color: #dc3545;
+}
+
+div.validation-error {
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+}

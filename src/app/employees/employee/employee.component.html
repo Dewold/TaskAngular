@@ -1,1 +1,67 @@
-<p>employee works!</p>
+<button type="button" class="btn btn-primary btn-sm btn-block" data-toggle="modal" 
+    data-target="#newEmployeeModal">
+    Добавить сотрудника
+</button>
+
+<div class="modal fade" id="newEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="newEmployeeModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="newEmployeeModalTitle">Новый сотрудник</h5>
+        </div>
+        <div class="modal-body">
+          <form #form="ngForm" autocomplete="off">
+              <div class="form-group row">
+                  <div class="col-sm-9">
+                      <input type="text" class="form-control" id="employeeLastName" name="LastName"
+                       #LastName="ngModel" [(ngModel)]="service.employeeForm.LastName" required>
+                  </div>
+                  <div class="validation-error" *ngIf="LastName.invalid && LastName.touched">
+                      Обязательное поле
+                  </div>
+                  <label for="employeeLastName" class="col-sm-3 col-form-label">Фамилия</label>
+              </div>
+
+              <div class="form-group row">
+                  <div class="col-sm-9">
+                      <input type="text" class="form-control" id="employeeFirstName">
+                  </div>
+                  <label for="employeeFirstName" class="col-sm-3 col-form-label">Имя</label>
+              </div>
+
+              <div class="form-group row">
+                  <div class="col-sm-9">
+                      <select class="form-control" id="employeePosition"></select>
+                  </div>
+                  <label for="employeePosition" class="col-sm-3 col-form-label">Должность</label>
+              </div>
+
+              <div class="form-group row">
+                  <div class="col-sm-9">
+                      <input type="number" class="form-control" id="employeeSalary">
+                  </div>
+                  <label for="employeeSalary" class="col-sm-3 col-form-label">Оклад</label>
+              </div>
+
+              <div class="form-group row">
+                  <div class="col-sm-9">
+                      <input type="date" class="form-control" id="employeeHireDate">
+                  </div>
+                  <label for="employeeHireDate" class="col-sm-3 col-form-label">Нанят</label>
+              </div>
+
+              <div class="form-group row">
+                  <div class="col-sm-9">
+                      <input type="date" class="form-control" id="employeeDismissalDate">
+                  </div>
+                  <label for="employeeDismissalDate" class="col-sm-3 col-form-label">Уволен</label>
+              </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+          <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Добавить</button>
+        </div>
+      </div>
+    </div>
+  </div>
