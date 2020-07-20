@@ -15,23 +15,33 @@
                   <div class="col-sm-9">
                       <input type="text" class="form-control" id="employeeLastName" name="LastName"
                        #LastName="ngModel" [(ngModel)]="service.employeeForm.LastName" required>
-                  </div>
-                  <div class="validation-error" *ngIf="LastName.invalid && LastName.touched">
-                      Обязательное поле
+                       <div class="validation-error" *ngIf="LastName.invalid && LastName.touched">
+                            Обязательное поле
+                      </div>
                   </div>
                   <label for="employeeLastName" class="col-sm-3 col-form-label">Фамилия</label>
               </div>
 
               <div class="form-group row">
                   <div class="col-sm-9">
-                      <input type="text" class="form-control" id="employeeFirstName">
+                      <input type="text" class="form-control" id="employeeFirstName" name="FirstName"
+                      #FirstName="ngModel" [(ngModel)]="service.employeeForm.FirstName" required>
+                      <div class="validation-error" *ngIf="FirstName.invalid && FirstName.touched">
+                            Обязательное поле
+                      </div>
                   </div>
                   <label for="employeeFirstName" class="col-sm-3 col-form-label">Имя</label>
               </div>
 
               <div class="form-group row">
                   <div class="col-sm-9">
-                      <select class="form-control" id="employeePosition"></select>
+                      <select class="form-control" id="employeePosition" name="Position" aria-placeholder="wf"
+                      #Position="ngModel" [(ngModel)]="service.employeeForm.PositionId" required>
+                        <option value="1">Developer</option>
+                      </select>
+                      <div class="validation-error" *ngIf="Position.invalid && Position.touched">
+                            Обязательное поле
+                      </div>
                   </div>
                   <label for="employeePosition" class="col-sm-3 col-form-label">Должность</label>
               </div>
@@ -60,7 +70,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-          <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Добавить</button>
+          <button type="button" (click)="onSubmit(form)" [disabled]="form.invalid" class="btn btn-primary">Добавить</button>
         </div>
       </div>
     </div>

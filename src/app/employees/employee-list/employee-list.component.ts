@@ -8,9 +8,9 @@ import { EmployeeService } from 'src/app/shared/employee.service';
 })
 export class EmployeeListComponent implements OnInit {
 
-  constructor(private service: EmployeeService) { }
+  constructor(public service: EmployeeService) { }
 
   ngOnInit(): void {
+    this.service.getEmployeeList();
   }
-
 }

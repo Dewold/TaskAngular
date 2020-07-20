@@ -10,10 +10,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let em of service.employeeList">
-        <td></td>
+      <tr *ngFor="let em of service.employeeList; let i = index">
+        <td>{{i + 1}}</td>
         <td>{{em.Position}}</td>
-        <td>[{{em.LastName}}] {{em.FirstName}}</td>
+        <td>{{em.LastName}} {{em.FirstName}}</td>
         <td>{{em.Salary}}</td>
         <td>{{em.HireDate}}</td>
         <td>{{em.DismissalDate}}</td>
