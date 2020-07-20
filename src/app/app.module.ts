@@ -8,20 +8,25 @@ import { EmployeeComponent } from './employees/employee/employee.component';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
 import { EmployeeService } from './shared/employee.service';
 import { HttpClientModule } from '@angular/common/http';
+import { PositionsComponent } from './positions/positions.component';
+import { PositionComponent } from './positions/position/position.component';
+import { PositionService } from './shared/position.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeesComponent,
     EmployeeComponent,
-    EmployeeListComponent
+    EmployeeListComponent,
+    PositionsComponent,
+    PositionComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule
   ],
-  providers: [EmployeeService],
+  providers: [EmployeeService, PositionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

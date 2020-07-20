@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/app/shared/employee.service';
 import { NgForm } from '@angular/forms';
+import { PositionService } from 'src/app/shared/position.service';
+import { Position } from 'src/app/shared/position.model';
 
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.scss']
 })
+
 export class EmployeeComponent implements OnInit {
 
-  constructor(public service: EmployeeService) { }
+  constructor(public service: EmployeeService,
+    private positionService: PositionService) { }
+
+    positionsList: Position[];
 
   ngOnInit(): void {
     this.resetEmployeeForm();
@@ -22,8 +28,9 @@ export class EmployeeComponent implements OnInit {
 
     this.service.employeeForm = {
       Id: null,
-      FirstName: 'Fef',
-      LastName: 'Fe',
+      FirstName: '',
+      LastName: '',
+      Position: null,
       PositionId: null,
       Salary: null,
       HireDate: null,
@@ -39,6 +46,5 @@ export class EmployeeComponent implements OnInit {
     this.service.postEmployee(form.value).subscribe(res => {
       this.resetEmployeeForm(form);
     })
-
   }
 }

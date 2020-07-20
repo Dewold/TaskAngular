@@ -12,11 +12,11 @@
     <tbody>
       <tr *ngFor="let em of service.employeeList; let i = index">
         <td>{{i + 1}}</td>
-        <td>{{em.Position}}</td>
-        <td>{{em.LastName}} {{em.FirstName}}</td>
-        <td>{{em.Salary}}</td>
-        <td>{{em.HireDate}}</td>
-        <td>{{em.DismissalDate}}</td>
+        <td>{{em.position.name}}</td>
+        <td>{{em.lastName}} {{em.firstName}}</td>
+        <td>{{em.salary | currency: 'USD'}}</td>
+        <td>{{em.hireDate | date: 'dd/MM/yyyy'}}</td>
+        <td>{{em.dismissalDate | date: 'dd/MM/yyyy'}}</td>
       </tr>
     </tbody>
   </table>
