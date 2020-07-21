@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/app/shared/employee.service';
 import { NgForm } from '@angular/forms';
 import { PositionService } from 'src/app/shared/position.service';
-import { Position } from 'src/app/shared/position.model';
 
 @Component({
   selector: 'app-employee',
@@ -13,12 +12,13 @@ import { Position } from 'src/app/shared/position.model';
 export class EmployeeComponent implements OnInit {
 
   constructor(public service: EmployeeService,
-    private positionService: PositionService) { }
-
-    positionsList: Position[];
+    public positionService: PositionService) { }
 
   ngOnInit(): void {
     this.resetEmployeeForm();
+    this.positionService.getAllPositions().subscribe(() => {
+      console.log(this.positionService.positionList);
+    });
   }
 
   resetEmployeeForm(form?: NgForm) {

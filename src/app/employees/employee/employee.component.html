@@ -37,9 +37,9 @@
                   <div class="col-sm-9">
                       <select class="form-control" id="employeePosition" name="PositionId"
                       #PositionId="ngModel" [(ngModel)]="service.employeeForm.PositionId" required>
-                        <option value="1">Продавец</option>
-                        <option value="2">Строитель</option>
-                        <option value="3">Водитель</option>
+                        <option *ngFor="let pos of positionService.positionList" [value]="pos.id">
+                          {{pos.name}}
+                        </option>
                       </select>
                       <div class="validation-error" *ngIf="PositionId.invalid && PositionId.touched">
                             Обязательное поле
