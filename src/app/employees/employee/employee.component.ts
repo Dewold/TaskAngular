@@ -31,7 +31,6 @@ export class EmployeeComponent implements OnInit {
       FirstName: '',
       LastName: '',
       Position: null,
-      PositionId: null,
       Salary: null,
       HireDate: null,
       DismissalDate: null

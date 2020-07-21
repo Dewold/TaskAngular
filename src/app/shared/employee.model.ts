@@ -5,7 +5,6 @@ export class Employee {
     FirstName: string;
     LastName: string;
     Position: Position;
-    PositionId: number;
     Salary: number;
     HireDate: Date;
     DismissalDate: Date;

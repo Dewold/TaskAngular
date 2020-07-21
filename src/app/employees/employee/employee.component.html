@@ -35,13 +35,13 @@
 
               <div class="form-group row">
                   <div class="col-sm-9">
-                      <select class="form-control" id="employeePosition" name="PositionId"
-                      #PositionId="ngModel" [(ngModel)]="service.employeeForm.PositionId" required>
-                        <option *ngFor="let pos of positionService.positionList" [value]="pos.id">
+                      <select class="form-control" id="employeePosition" name="Position"
+                      #Position="ngModel" [(ngModel)]="service.employeeForm.Position" required>
+                        <option *ngFor="let pos of positionService.positionList" [ngValue]="pos">
                           {{pos.name}}
                         </option>
                       </select>
-                      <div class="validation-error" *ngIf="PositionId.invalid && PositionId.touched">
+                      <div class="validation-error" *ngIf="Position.invalid && Position.touched">
                             Обязательное поле
                       </div>
                   </div>
